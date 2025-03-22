@@ -1,4 +1,21 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 export const Signup = () => {
+	const [type, settype] = useState("password");
+	const [show, setshow] = useState("show");
+
+	const checktype = () => {
+		if (type == "text") {
+			settype("password");
+			setshow("hide");
+		}
+		if (type == "password") {
+			settype("text");
+			setshow("show");
+		}
+	};
+
 	return (
 		<div className="w-full">
 			<div className="flex">
@@ -20,12 +37,19 @@ export const Signup = () => {
 							className="w-full h-[71px] px-[25px] py-[19px] rounded border-1 border-[rgba(251,221,187,0.49)]"
 							required
 						/>
-						<input
-							type="password"
-							placeholder="Your Password"
-							className="w-full h-[71px] px-[25px] py-[19px] rounded border-1 border-[rgba(251,221,187,0.49)]"
-							required
-						/>
+						<div className="relative">
+							<input
+								type={type}
+								placeholder="Your Password"
+								className="w-full h-[71px] px-[25px] py-[19px] rounded border-1 border-[rgba(251,221,187,0.49)]"
+							/>
+							<p
+								onClick={checktype}
+								className="absolute top-6 right-[30px] text-[#00302e]"
+							>
+								{show}
+							</p>
+						</div>
 						<input
 							type="submit"
 							className="w-full h-[71px] px-[25px] py-[19px] rounded bg-[#00302e] text-[#fbddbb] cursor-pointer"
@@ -36,12 +60,12 @@ export const Signup = () => {
 						<span className="font-[14px] text-[rgba(0,48,46,0.91)]">
 							Already have an account.
 						</span>
-						<a
-							href="/login"
+						<Link
+							to="/login"
 							className="text-[14px] font-bold text-[rgba(0,48,46,0.91)]"
 						>
 							LOGIN
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>

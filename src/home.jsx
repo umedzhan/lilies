@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Home = () => {
 	return (
 		<div className="w-full h-full font-arial bg-[#00302e] text-white">
@@ -8,18 +10,18 @@ export const Home = () => {
 				</div>
 				<div className="flex justify-end flex-1 items-center">
 					<div className="flex gap-[45px] items-center">
-						<a className="font-medium text-[#fbddbb]" href="/">
+						<Link className="font-medium text-[#fbddbb]" to="/">
 							Home
-						</a>
-						<a className="font-medium" href="/login">
+						</Link>
+						<Link className="font-medium" to="/login">
 							Login
-						</a>
-						<a
+						</Link>
+						<Link
 							className=" font-medium bg-[#e2b887] rounded px-[38px] py-[10px]"
-							href="/signup"
+							to="/signup"
 						>
 							Sign Up
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>
