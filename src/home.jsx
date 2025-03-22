@@ -60,7 +60,7 @@ export const Home = () => {
 					<span className="font-bold text-[24px] text-[#fbddbb] mt-[35px]">
 						Stir Fry Pasta
 					</span>
-					<span className="font-normal font-[18px] [line-height:33px] mt-[14px]">
+					<span className="font-normal text-[18px] [line-height:33px] mt-[14px]">
 						Stir fry pasta yada yada yada
 						<br />
 						because of Sesan
@@ -71,7 +71,7 @@ export const Home = () => {
 					<span className="font-bold text-[24px] text-[#fbddbb] mt-[35px]">
 						Meat Balls
 					</span>
-					<span className="font-normal font-[18px] [line-height:33px] mt-[14px]">
+					<span className="font-normal text-[18px] [line-height:33px] mt-[14px]">
 						Stir fry pasta yada yada yada
 						<br />
 						because of Sesan
@@ -82,7 +82,7 @@ export const Home = () => {
 					<span className="font-bold text-[24px] text-[#fbddbb] mt-[35px]">
 						Burger Meal
 					</span>
-					<span className="font-normal font-[18px] [line-height:33px] mt-[14px]">
+					<span className="font-normal text-[18px] [line-height:33px] mt-[14px]">
 						Stir fry pasta yada yada yada
 						<br />
 						because of Sesan
@@ -100,19 +100,20 @@ export const Home = () => {
 						update our price list of have promos!
 					</div>
 				</div>
-				<div className="flex gap-2">
+				<form className="flex gap-2">
 					<input
-						type="text"
+						type="email"
 						placeholder="gregphilips@gmail.com"
-						className="w-[400px] h-[50px] bg-[#f7f7f7] rounded p-[15px] text-black placeholder:text-[#b2b2b2] fonr-normal text-[18px] outline-none"
+						className="w-[299px] h-[51px] bg-[#f7f7f7] rounded p-[15px] text-black placeholder:text-[#b2b2b2] fonr-normal text-[18px] outline-none"
+						required
 					/>
-					<button className="w-[200px] h-[50px] bg-[#fbddbb] rounded text-black">
-						Subscribe
+					<button className="w-[182px] h-[51px] bg-[#fbddbb] rounded text-black">
+						Get notified
 					</button>
-				</div>
+				</form>
 			</div>
 			<footer className="flex flex-col bg-[#0b0d17] px-[165px] w-full">
-				<div className="flex flex items-center justify-between pt-[64px] w-full pb-[64px]">
+				<div className="flex items-center justify-between pt-[64px] w-full pb-[64px]">
 					<div className="flex flex-col gap-6">
 						<span className="font-bold text-[18px]">Company</span>
 						<div className="flex flex-col gap-3 text-[14px]">
