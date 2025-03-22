@@ -146,7 +146,7 @@ export const Home = () => {
 					</div>
 				</div>
 				<hr className="mx-[-165px] h-[1px] border-t border-[rgba(255,255,255,0.1)]" />
-				<div className="flex justify-between py-[24px] px-[180px]">
+				<div className="flex justify-between items-center py-[24px] px-[15px]">
 					<div className="text-[14px]">© 2021 LILIES, All rights reserved</div>
 					<div className="flex gap-6">
 						<img src="instagram-logo.png" />
