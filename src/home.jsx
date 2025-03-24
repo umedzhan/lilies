@@ -10,14 +10,15 @@ export const Home = () => {
 				</div>
 				<div className="flex justify-end flex-1 items-center">
 					<div className="flex gap-[45px] items-center">
-						<Link className="font-medium text-[#fbddbb]" to="/">
+						<Link className="font-medium text-[#fbddbb]" to="/dashboard">
 							Home
 						</Link>
 						<Link className="font-medium" to="/login">
 							Login
 						</Link>
 						<Link
-							className=" font-medium bg-[#e2b887] rounded px-[38px] py-[10px]"
+							className="transition-all font-medium bg-[#e2b887] rounded border-2 border-[#e2b887] px-[38px] py-[10px]  
+								hover:bg-[#00302e] hover:border-2 hover:border-[#e2b887] hover:rounded-none"
 							to="/signup"
 						>
 							Sign Up
