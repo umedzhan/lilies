@@ -116,7 +116,7 @@ export const Home = () => {
 				</form>
 			</div>
 			<footer className="flex flex-col bg-[#0b0d17] px-[165px] w-full">
-				<div className="flex items-center justify-between pt-[64px] w-full pb-[64px]">
+				<div className="flex justify-between pt-[64px] w-full pb-[64px]">
 					<div className="flex flex-col gap-6">
 						<span className="font-bold text-[18px]">Company</span>
 						<div className="flex flex-col gap-3 text-[14px]">
@@ -128,15 +128,15 @@ export const Home = () => {
 					<div className="flex flex-col gap-6">
 						<span className="font-bold text-[18px]">Support</span>
 						<div className="flex flex-col gap-3 text-[14px]">
-							<span>Help</span>
-							<span>Privacy Policy</span>
-							<span>Terms of Use</span>
+							<span>Help Center</span>
+							<span>Safety Center</span>
 						</div>
 					</div>
 					<div className="flex flex-col gap-6">
 						<span className="font-bold text-[18px]">Legal</span>
 						<div className="flex flex-col gap-3 text-[14px]">
 							<span>Cookie Policy</span>
+							<span>Privacy Policy</span>
 							<span>Terms of Service</span>
 							<span>Dispute Resolution</span>
 						</div>
@@ -151,7 +151,7 @@ export const Home = () => {
 				</div>
 				<hr className="mx-[-165px] h-[1px] border-t border-[rgba(255,255,255,0.1)]" />
 				<div className="flex justify-between items-center py-[24px] px-[15px]">
-					<div className="text-[14px]">© 2021 LILIES, All rights reserved</div>
+					<div className="text-[14px]">© 2025 LILIES, All rights reserved</div>
 					<div className="flex gap-6">
 						<img src="instagram-logo.png" />
 						<img src="twitter-logo.png" />

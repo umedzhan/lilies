@@ -2,8 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import SideBar from "./components/sideBar";
 import Card from "./components/card";
+import AddToCard from "./components/addToCard";
 
 export const Dashboard = () => {
+	const [showAdToCard, setShowAdToCard] = useState("hidden");
+
+	const toggleAddToCard = () => {
+		setShowAdToCard(showAdToCard === "hidden" ? "absolute" : "hidden");
+	};
 	return (
 		<div className="ml-[320px]">
 			<SideBar />
@@ -22,14 +28,12 @@ export const Dashboard = () => {
 					</div>
 				</div>
 				<div className="flex flex-wrap gap-[30px]">
-					<Card Rasm="burger-meal.png" />
-					<Card Rasm="stir-fry-pasta.png" />
-					<Card Rasm="burger-meal.png" />
-					<Card Rasm="stir-fry-pasta.png" />
-					<Card Rasm="burger-meal.png" />
-					<Card Rasm="stir-fry-pasta.png" />
+					{Array.from({ length: 20 }, (_, index) => (
+						<Card key={index} Click={toggleAddToCard} />
+					))}
 				</div>
 			</div>
+			<AddToCard showAdToCard={showAdToCard} hideAddToCard={toggleAddToCard} />
 		</div>
 	);
 };
