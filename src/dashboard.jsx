@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import SideBar from "./components/sideBar";
-import Card from "./components/card";
-import AddToCard from "./components/addToCard";
+import SideBar from "./components/SideBar";
+import Card from "./components/Card";
+import AddToCard from "./components/AddToCard";
 
 export const Dashboard = () => {
 	const [showAdToCard, setShowAdToCard] = useState("hidden");
@@ -13,7 +13,7 @@ export const Dashboard = () => {
 	return (
 		<div className="ml-[320px]">
 			<SideBar />
-			<div className="flex flex-col w-full p-[68px] gap-[53px]">
+			<div className="flex flex-col p-[68px] gap-[53px] h-[100vh]">
 				<div className="flex justify-between">
 					<div className="flex flex-col gap-1">
 						<span className="font-semibold text-[23px]">
@@ -27,7 +27,7 @@ export const Dashboard = () => {
 						<img src="dashboard-profile-photo.png" alt="user" />
 					</div>
 				</div>
-				<div className="flex flex-wrap gap-[30px]">
+				<div className="flex flex-wrap gap-[30px] overflow-y-scroll mb-[-68px]">
 					{Array.from({ length: 20 }, (_, index) => (
 						<Card key={index} Click={toggleAddToCard} />
 					))}

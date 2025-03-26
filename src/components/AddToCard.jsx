@@ -6,12 +6,15 @@ function AddToCard({ showAdToCard, hideAddToCard }) {
 		<div
 			className={
 				showAdToCard +
-				` h-full right-0 top-0 w-full bg-[rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out`
+				` h-full right-0 top-0 w-full bg-[rgba(0,0,0,0.5)] transition-all duration-500 ease-in-out z-10`
 			}
 		>
-			<div className="flex h-full">
-				<div className="w-full" onClick={hideAddToCard}></div>
-				<div className="flex flex-col items-center justify-center bg-amber-50 w-[521px] h-full px-[64px]">
+			<div className="flex h-full transition-all duration-500 ease-in-out">
+				<div
+					className="w-full transition-all duration-500 ease-in-out"
+					onClick={hideAddToCard}
+				></div>
+				<div className="flex flex-col items-center justify-center bg-amber-50 w-[521px] h-full px-[64px] transition-all duration-500 ease-in-out">
 					<img
 						className="w-[230px] h-[230px] max-h-[230px] max-w-[230px]"
 						src="default-add-to-card.png"

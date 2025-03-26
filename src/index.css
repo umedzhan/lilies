@@ -3,3 +3,8 @@
 * {
 	font-family: poppins;
 }
+
+::-webkit-scrollbar {
+	display: none;
+	margin: 0px;
+}
