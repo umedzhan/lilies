@@ -2,17 +2,40 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
+	const [email, setemail] = useState("");
+	const [password, setpassword] = useState("");
+
+	const handleLogin = async (e) => {
+		e.preventDefault();
+
+		const res = await fetch("https://m6024.myxvest.ru/lilies/login.php", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ email, password }),
+		});
+
+		const data = await res.json();
+		if (data.token) {
+			localStorage.setItem("token", data.token);
+			console.log(data);
+		} else {
+			console.log(data);
+		}
+	};
+
 	const [type, settype] = useState("password");
 	const [show, setshow] = useState("show");
 
 	const checktype = () => {
 		if (type == "text") {
 			settype("password");
-			setshow("hide");
+			setshow("show");
 		}
 		if (type == "password") {
 			settype("text");
-			setshow("show");
+			setshow("hide");
 		}
 	};
 
@@ -24,16 +47,18 @@ export const Login = () => {
 					<div className="text-[27px] font-semibold pt-[278px] text-center">
 						Welcome Back!
 					</div>
-					<form className="flex flex-col gap-12">
+					<form onSubmit={handleLogin} className="flex flex-col gap-12">
 						<input
 							type="email"
 							placeholder="Your Email address"
+							onChange={(e) => setemail(e.target.value)}
 							className="w-full h-[71px] px-[25px] py-[19px] rounded border-1 border-[rgba(251,221,187,0.49)] mt-[61px]"
 						/>
 						<div className="relative">
 							<input
 								type={type}
 								placeholder="Your Password"
+								onChange={(e) => setpassword(e.target.value)}
 								className="w-full h-[71px] px-[25px] py-[19px] rounded border-1 border-[rgba(251,221,187,0.49)]"
 							/>
 							<p

@@ -1,7 +1,34 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
+	const [name, setname] = useState("");
+	const [email, setemail] = useState("");
+	const [password, setpassword] = useState("");
+	const navigate = useNavigate();
+
+	const handleSignup = async (e) => {
+		e.preventDefault();
+
+		const res = await fetch("https://m6024.myxvest.ru/lilies/register.php", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ name, email, password }),
+		});
+
+		const data = await res.json();
+		console.log(data);
+
+		if (data.ok === true) {
+			navigate("/login");
+		} else {
+			console.log(data);
+		}
+	};
+
 	const [type, settype] = useState("password");
 	const [show, setshow] = useState("show");
 
@@ -24,16 +51,21 @@ export const Signup = () => {
 					<div className="text-[27px] font-semibold pt-[204px] text-center">
 						Welcome to Lilies!
 					</div>
-					<form className="flex flex-col gap-12 mt-[61px]">
+					<form
+						onSubmit={handleSignup}
+						className="flex flex-col gap-12 mt-[61px]"
+					>
 						<input
 							type="text"
 							placeholder="Your First Name"
+							onChange={(e) => setname(e.target.value)}
 							className="w-full h-[71px] px-[25px] py-[19px] rounded border-1 border-[rgba(251,221,187,0.49)]"
 							required
 						/>
 						<input
 							type="email"
 							placeholder="Your Email address"
+							onChange={(e) => setemail(e.target.value)}
 							className="w-full h-[71px] px-[25px] py-[19px] rounded border-1 border-[rgba(251,221,187,0.49)]"
 							required
 						/>
@@ -41,6 +73,7 @@ export const Signup = () => {
 							<input
 								type={type}
 								placeholder="Your Password"
+								onChange={(e) => setpassword(e.target.value)}
 								className="w-full h-[71px] px-[25px] py-[19px] rounded border-1 border-[rgba(251,221,187,0.49)]"
 							/>
 							<p
