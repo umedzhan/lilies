@@ -15,14 +15,21 @@ function SideBar() {
           <h1 className="text-[36px] text-4xl font-bold pt-[19px]">Lilies</h1>
         </Link>
         <div className="flex flex-col gap-[15px] justify-center px-[25px]">
-          <div
+          <Link
             className={`rounded flex gap-[19px] items-center px-[15px] py-[13px] hover:bg-[#cacaca]
-							${location.pathname === "/dashboard" ? " bg-[#efefef]" : ""}
-						`}
+				${location.pathname === "/dashboard" ? " bg-[#efefef]" : ""}
+				`}
+            to="/dashboard"
           >
-            <HomeIcon className="" />
-            <h1 className="text-[17px] font-semibold">Dashboard</h1>
-          </div>
+            <HomeIcon
+              className={
+                location.pathname !== "/dashboard"
+                  ? "fill-current text-gray-500"
+                  : ""
+              }
+            />
+            <div className="text-[17px] font-semibold">Dashboard</div>
+          </Link>
           <div
             className={`rounded flex gap-[19px] items-center px-[15px] py-[13px] hover:bg-[#cacaca]
 							${location.pathname === "/profile" ? " bg-[#efefef]" : ""}
@@ -51,20 +58,21 @@ function SideBar() {
             />
             <h1 className="text-[17px] font-semibold">Orders</h1>
           </div>
-          <div
+          <Link
             className={`rounded flex gap-[19px] items-center px-[15px] py-[13px] hover:bg-[#cacaca]
-				${location.pathname === "/card" ? " bg-[#efefef]" : ""}
+				${location.pathname === "/cards" ? " bg-[#efefef]" : ""}
 			`}
+            to="/cards"
           >
             <Card
               className={
-                location.pathname !== "/card"
+                location.pathname !== "/cards"
                   ? "fill-current text-gray-500"
                   : ""
               }
             />
-            <h1 className="text-[17px] font-semibold">Your Card</h1>
-          </div>
+            <div className="text-[17px] font-semibold">Your Card</div>
+          </Link>
         </div>
       </div>
     </div>

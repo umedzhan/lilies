@@ -58,10 +58,10 @@ function AddToCard({ showAdToCard, hideAddToCard, product }) {
           <span className="text-center text-[11px] w-[394px] max-w-[394px] text-[#000000B0] mt-[17px] [line-height:27px]">
             {product.description ||
               `Just have a single bite of this Black Forest pastry and it will all
-						make a proper sense to you. The kick of cherry and rich chocolate of
-						this super light, airy pastry will definitely make you feel "wow".
-						The perfect combination of cherry cream and rich chocolate can
-						provide the ultimate fulfillment to your dessert craving.`}
+				      make a proper sense to you. The kick of cherry and rich chocolate of
+				      this super light, airy pastry will definitely make you feel "wow".
+				      The perfect combination of cherry cream and rich chocolate can
+              provide the ultimate fulfillment to your dessert craving.`}
           </span>
           <div className="flex justify-between w-full mt-[41px] text-[17px] text-[600]">
             <span>NGN 2000.00</span>
