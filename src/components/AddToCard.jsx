@@ -6,6 +6,34 @@ function AddToCard({ showAdToCard, hideAddToCard, product }) {
 	if (!product) return null;
 	console.log("Image URL:", product.image);
 
+	const handleAddToCart = async () => {
+		const token = localStorage.getItem("token");
+		if (!token) {
+			alert("Iltimos, avval tizimga kiring!");
+			return;
+		}
+
+		if (!product) {
+			alert("Mahsulot tanlanmagan!");
+			return;
+		}
+
+		const res = await fetch("https://m6024.myxvest.ru/lilies/addOrder.php", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+			body: JSON.stringify({
+				product_id: product.id,
+				quantity: plus,
+			}),
+		});
+
+		const data = await res.json();
+		alert(data.message || data.error);
+	};
+
 	return (
 		<div
 			className={
@@ -56,7 +84,10 @@ function AddToCard({ showAdToCard, hideAddToCard, product }) {
 								+
 							</button>
 						</div>
-						<button className="bg-[#00302E] text-white w-[144px] h-[60px]">
+						<button
+							className="bg-[#00302E] text-white w-[144px] h-[60px]"
+							onClick={handleAddToCart}
+						>
 							Add to Card
 						</button>
 					</div>
