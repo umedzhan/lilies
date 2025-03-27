@@ -1,7 +1,11 @@
 import { useState } from "react";
 
-function AddToCard({ showAdToCard, hideAddToCard }) {
+function AddToCard({ showAdToCard, hideAddToCard, product }) {
 	const [plus, setplus] = useState(0);
+
+	if (!product) return null;
+	console.log("Image URL:", product.image);
+
 	return (
 		<div
 			className={
@@ -16,19 +20,20 @@ function AddToCard({ showAdToCard, hideAddToCard }) {
 				></div>
 				<div className="flex flex-col items-center justify-center bg-amber-50 w-[521px] h-full px-[64px] transition-all duration-500 ease-in-out">
 					<img
-						className="w-[230px] h-[230px] max-h-[230px] max-w-[230px]"
-						src="default-add-to-card.png"
+						className="w-[230px] h-[230px] max-h-[230px] max-w-[230px] rounded-full"
+						src={product.image}
 						alt="default-add-to-card"
 					/>
 					<span className="text-[600] text-[17px] mt-[28px]">
-						Blueberry Toasts and smoothie
+						{product.name}
 					</span>
 					<span className="text-center text-[11px] w-[394px] max-w-[394px] text-[#000000B0] mt-[17px] [line-height:27px]">
-						Just have a single bite of this Black Forest pastry and it will all
+						{product.description ||
+							`Just have a single bite of this Black Forest pastry and it will all
 						make a proper sense to you. The kick of cherry and rich chocolate of
 						this super light, airy pastry will definitely make you feel "wow".
 						The perfect combination of cherry cream and rich chocolate can
-						provide the ultimate fulfillment to your dessert craving.
+						provide the ultimate fulfillment to your dessert craving.`}
 					</span>
 					<div className="flex justify-between w-full mt-[41px] text-[17px] text-[600]">
 						<span>NGN 2000.00</span>

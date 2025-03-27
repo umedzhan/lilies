@@ -8,6 +8,8 @@ import AddToCard from "./components/AddToCard";
 export const Dashboard = () => {
 	const [showAdToCard, setShowAdToCard] = useState("hidden");
 	const [uname, setuname] = useState("");
+	const [product, setproduct] = useState([]);
+	const [selectedProduct, setSelectedProduct] = useState(null);
 
 	useEffect(() => {
 		const token = localStorage.getItem("token");
@@ -21,8 +23,26 @@ export const Dashboard = () => {
 		}
 	});
 
-	const toggleAddToCard = () => {
+	//getProduct
+	useEffect(() => {
+		fetch("https://m6024.myxvest.ru/lilies/products.php", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setproduct(data);
+				console.log(data);
+			})
+			.catch((error) => console.log(error));
+	}, []);
+
+	const toggleAddToCard = (index) => {
 		setShowAdToCard(showAdToCard === "hidden" ? "absolute" : "hidden");
+		setSelectedProduct(index);
+		console.log(selectedProduct);
 	};
 	return (
 		<div className="ml-[320px]">
@@ -42,12 +62,24 @@ export const Dashboard = () => {
 					</div>
 				</div>
 				<div className="flex flex-wrap gap-[30px] overflow-y-scroll mb-[-68px]">
-					{Array.from({ length: 20 }, (_, index) => (
-						<Card key={index} Click={toggleAddToCard} />
+					{product.map((product, index) => (
+						<Card
+							key={index}
+							Rasm={product.image}
+							Click={() => toggleAddToCard(product)}
+							Name={product.name}
+							Description={product.description}
+							Price={product.price}
+							AddToCardClick={() => toggleAddToCard(product)}
+						/>
 					))}
 				</div>
 			</div>
-			<AddToCard showAdToCard={showAdToCard} hideAddToCard={toggleAddToCard} />
+			<AddToCard
+				showAdToCard={showAdToCard}
+				hideAddToCard={toggleAddToCard}
+				product={selectedProduct}
+			/>
 		</div>
 	);
 };
